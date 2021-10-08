@@ -1,10 +1,8 @@
 <template>
-
   <Cadastro/>
-  
   <HelloWorld msg=""/>
   <Consulta/>
-  
+  <Revisao/>
   
 </template>
 
@@ -12,6 +10,7 @@
 import HelloWorld from './components/HelloWorld.vue'
 import Consulta from './views/Consulta.vue'
 import Cadastro from './views/Cadastro.vue'
+import Revisao from './views/Revisao.vue'
 
 
 
@@ -20,7 +19,8 @@ export default {
   components: {
     HelloWorld,
     Cadastro,
-    Consulta
+    Consulta,
+    Revisao
   }
 }
 </script>
@@ -31,7 +31,7 @@ export default {
   padding-top: 80px;
   max-width: 100%;
   margin: auto;
-  
+
   font-family: Comfortaa, Open sans-serif, Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
