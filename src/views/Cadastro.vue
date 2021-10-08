@@ -6,10 +6,10 @@
         <h1 class="py-2" v-if="page == 2">Sobre o atendimento</h1>
         <h4 class="py-2" v-if="page == 2">Detalhes do atendimento</h4>
         <h1 class="py-2" v-if="page == 3">Revisão dos dados</h1>
-		<h1 class="py-2" v-if="page == 4"></h1>
+        <h1 class="py-2" v-if="page == 4"></h1>
         <!-- Início do Formulário -->
         <div class="row">
-            <!-- tela 1 -->
+            <!-- tela 1 - Dados do Profissional -->
             <template v-if="page == 1">
                 <div class="row">
                     <div class="col-lg-6 col-md-12">
@@ -51,7 +51,7 @@
                     </div>
                 </div>
             </template>
-            <!-- tela 2 -->
+            <!-- tela 2 - Detalhes do Atendimento -->
             <template v-if="page == 2">
                 <div class="row">
                     <div class="col-lg-6 col-md-12">
@@ -73,8 +73,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1">R$</span>
                                 </div>
-                                <input type="text" class="form-control" id="valor" placeholder="Entre R$ 30,00 e R$ 350,00" autocomplete="off" v-model="valor">
-								
+                                <input type="text" class="form-control" id="valor" placeholder="Entre R$ 30,00 e R$ 350,00" autocomplete="off" v-model="valor">		
                             </div>
                             <p class="pt-4">Formas de pagamento da Consulta:</p>
                             <div class="p-4 form-check border col-8 mb-3" style="background-color: #f9f9f9; border-radius: 10px">
@@ -123,44 +122,43 @@
                     </div>
                 </div>
             </template>
-            <!-- tela 3 -->
+            <!-- tela 3 - Revisão dos Dados -->
             <template v-if="page == 3">
                 <div class="row">
                     <div class="col-lg-6 col-md-12">
-                        
-						<div class="pt-2">
-							<p> <strong>NOME COMPLETO:</strong></p>
-							<label>{{ name }}</label>
-						</div>
-						<div class="pt-2">
-							<p><strong>NÚMERO DO CPF:</strong></p>
-							<p>{{ cpf }}</p>
-						</div>
-						<div class="pt-2">
-							<p><strong>NÚMERO DE TELEFONE:</strong></p>
-							<p>{{ tel }}</p>
-						</div>
-						<div class="pt-2">
-							<p><strong>ESPECIALIDADE PRINCIPAL:</strong></p>
-							<p>{{ inputEspecialidade }}</p>
-						</div>	
-						<div class="pt-2">
-							<p><strong>ESTADO/CIDADE</strong></p>
-							<p>{{ stateSelected }}/{{  }}</p>
-						</div>
-						<div class="pt-2">
-							<p><strong>VALOR DA CONSULTA</strong></p>
-							<p>{{ valor }}</p>
-						</div>
-						<div class="pt-2">
-							<p><strong>FORMA DE PAGAMENTO</strong></p>
-							<p>{{ pagamento }}</p>
-						</div>
-						<div class="row">
-							<div class="col-6">
-								<button type="button" class="mt-4 btn btn-warning" v-on:click="returnInicio (page == 1)">EDITAR CADASTRO</button>
-						</div>	
-				</div>
+                        <div class="pt-2">
+                            <p> <strong>NOME COMPLETO:</strong></p>
+                            <label>{{ name }}</label>
+                        </div>
+                        <div class="pt-2">
+                            <p><strong>NÚMERO DO CPF:</strong></p>
+                            <p>{{ cpf }}</p>
+                        </div>
+                        <div class="pt-2">
+                            <p><strong>NÚMERO DE TELEFONE:</strong></p>
+                            <p>{{ tel }}</p>
+                        </div>
+                        <div class="pt-2">
+                            <p><strong>ESPECIALIDADE PRINCIPAL:</strong></p>
+                            <p>{{ inputEspecialidade }}</p>
+                        </div>
+                        <div class="pt-2">
+                            <p><strong>ESTADO/CIDADE</strong></p>
+                            <p>{{ stateSelected }}/{{  }}</p>
+                        </div>
+                        <div class="pt-2">
+                            <p><strong>VALOR DA CONSULTA</strong></p>
+                            <p>{{ valor }}</p>
+                        </div>
+                        <div class="pt-2">
+                            <p><strong>FORMA DE PAGAMENTO</strong></p>
+                            <p>{{ pagamento }}</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <button type="button" class="mt-4 btn btn-warning" v-on:click="returnInicio (page == 1)">EDITAR CADASTRO</button>
+                            </div>
+                        </div>
                     </div>
                     <!-- Figura da Página -->
                     <div class="ml-5 col d-none d-lg-block">
@@ -168,15 +166,16 @@
                     </div>
                 </div>
             </template>
-			<!-- tela 4 -->
+            <!-- tela 4 - Conclusão do Cadastro -->
             <template v-if="page == 4">
                 <div class="row">
                     <div class="col-12">
-						<blockquote class="blockquote text-center">
-  							<h1 class="pb-4">Parabéns,
-							o seu cadastro foi realizado com sucesso !</h1>
-  							<footer><cite title="Título da fonte">Obrigado pelo tempo dedicado !</cite></footer>
-						</blockquote>
+                        <blockquote class="blockquote text-center">
+                            <h1 class="pb-4">Parabéns,
+                                o seu cadastro foi realizado com sucesso !
+                            </h1>
+                            <footer><cite title="Título da fonte">Obrigado pelo tempo dedicado !</cite></footer>
+                        </blockquote>
                     </div>
                     <!-- Figura da Página -->
                     <div class="col-6 mx-auto">
@@ -188,51 +187,50 @@
             <div class="col-12 p-0" v-if="page < 4">
                 <button type="button" class="mt-4 btn btn-primary" v-on:click="nextPage()">Seguir</button>
             </div>
-            <!-- </div> -->
         </div>
     </div>
 </template>
 <script>
     export default {
-		name: 'Cadastro',
-		data: function(){
-			return {
-				page: 1,
-				name: "",
-				cpf: "",
-				tel: "",
-				inputEspecialidade: "",
-				inputEstado: "",
-				citiesSelected: "",
-				valor: "",
-				pagamento: [],
-
-				stateSelected: '',
-				states: [
-					'Paraná', 'Rio Grande do Sul', 'Santa Catarina'
-				],
-				cities: {
-					Paraná:[
-						'Londrina', 'Maringá'
-					],
-					'Rio Grande do Sul':[
-						'Pelotas', 'Porto Alegre'
-					],
-					'Santa Catarina':[
-						'Florianópolis', 'Joinville'
-					]
-				},
-			}
-		},
-		methods: {
-			nextPage(){
-				this.page++				
-			}
-		},
-		computed:{
-			citiesSelected(){
-				return this.cities[this.stateSelected]
-			}
-		}
+    name: 'Cadastro',
+    data: function(){
+    return {
+    page: 1,
+    name: "",
+    cpf: "",
+    tel: "",
+    inputEspecialidade: "",
+    inputEstado: "",
+    citiesSelected: "",
+    valor: "",
+    pagamento: [],
+    
+    stateSelected: '',
+    states: [
+    	'Paraná', 'Rio Grande do Sul', 'Santa Catarina'
+    ],
+    cities: {
+    	Paraná:[
+    		'Londrina', 'Maringá'
+    	],
+    	'Rio Grande do Sul':[
+    		'Pelotas', 'Porto Alegre'
+    	],
+    	'Santa Catarina':[
+    		'Florianópolis', 'Joinville'
+    	]
+    },
+    }
+    },
+    methods: {
+    nextPage(){
+    this.page++				
+    }
+    },
+    computed:{
+    citiesSelected(){
+    return this.cities[this.stateSelected]
+    }
+    }
     }
 </script>
